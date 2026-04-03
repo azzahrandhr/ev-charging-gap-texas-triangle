@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Texas Triangle EV Charging Gap Dashboard</title>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<!-- Google Fonts — matching nadhira.me -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ── Design tokens ─────────────────────────────────────────────────── */
+:root {
+  --navbar-bg:    #EADBDD;
+  --navbar-fg:    #212529;
+  --body-bg:      #ffffff;
+  --body-fg:      #212529;
+  --muted:        #666666;
+  --panel-bg:     #f8f9fa;
+  --card-bg:      #ffffff;
+  --border:       #dee2e6;
+  --link:         #2780e3;
+
+  --hw-i10: #e67e22;
+  --hw-i35: #c0392b;
+  --hw-i45: #27ae60;
+  --charger: #2780e3;
+  --truck:   #8e44ad;
+  --desert:  #c0392b;
+  --covered: #27ae60;
+
+  --navbar-h:    52px;
+  --status-h:    28px;
+  --left-w:      270px;
+  --right-w:     300px;
+  --font:        "Source Sans 3", "Source Sans Pro", -apple-system, sans-serif;
+  --font-size:   16px;
+}
+
+[data-theme="dark"] {
+  --navbar-bg:  #252525;
+  --navbar-fg:  #e0e0e0;
+  --body-bg:    #181818;
+  --body-fg:    #cccccc;
+  --muted:      #888888;
+  --panel-bg:   #1e1e1e;
+  --card-bg:    #242424;
+  --border:     #333333;
+  --link:       #75AADB;
+}
+
+/* ── Reset & base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: var(--font);
+  font-size: var(--font-size);
+  background: var(--body-bg);
+  color: var(--body-fg);
+  display: flex;
+  flex-direction: column;
+  transition: background .2s, color .2s;
+}
+
+/* ── Navbar ────────────────────────────────────────────────────────── */
+#navbar {
+  height: var(--navbar-h);
+  background: var(--navbar-bg);
+  color: var(--navbar-fg);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: background .2s;
+}
+#navbar .nav-title { font-weight: 600; font-size: 1rem; white-space: nowrap; }
+#navbar .nav-sub   { font-size: .82rem; color: var(--muted); white-space: nowrap; }
+#navbar .nav-spacer { flex: 1; }
+#navbar a.nav-back {
+  font-size: .82rem; color: var(--navbar-fg); text-decoration: none;
+  border: 1px solid var(--navbar-fg); padding: 3px 8px; opacity: .7;
+}
+#navbar a.nav-back:hover { opacity: 1; }
+#navbar button {
+  background: none; border: 1px solid var(--navbar-fg);
+  color: var(--navbar-fg); cursor: pointer; padding: 3px 8px;
+  font-size: .82rem; font-family: var(--font);
+}
+#navbar button:hover { background: rgba(0,0,0,.08); }
+
+/* ── Main layout ───────────────────────────────────────────────────── */
+#main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── Left panel ────────────────────────────────────────────────────── */
+#left-panel {
+  width: var(--left-w);
+  flex-shrink: 0;
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#left-panel .panel-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: .75rem;
+}
+
+/* ── Center map ────────────────────────────────────────────────────── */
+#map-container {
+  flex: 1;
+  position: relative;
+}
+#map { width: 100%; height: 100%; }
+
+/* ── Right panel ───────────────────────────────────────────────────── */
+#right-panel {
+  width: var(--right-w);
+  flex-shrink: 0;
+  background: var(--panel-bg);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#right-panel .panel-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: .75rem;
+}
+
+/* ── Status bar ────────────────────────────────────────────────────── */
+#statusbar {
+  height: var(--status-h);
+  background: var(--navbar-bg);
+  color: var(--navbar-fg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 .75rem;
+  gap: 1.5rem;
+  font-size: .75rem;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+#statusbar span { opacity: .75; }
+#statusbar span b { opacity: 1; font-weight: 600; }
+
+/* ── Panel section labels ──────────────────────────────────────────── */
+.section-label {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: .4rem;
+  margin-top: .75rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+}
+.section-label:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* ── Highway toggle pills ──────────────────────────────────────────── */
+.hwy-pills { display: flex; gap: .4rem; flex-wrap: wrap; }
+.hwy-pill {
+  padding: 3px 10px;
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  user-select: none;
+  transition: opacity .15s;
+}
+.hwy-pill[data-hwy="I-10"] { background: var(--hw-i10); color: #fff; border-color: var(--hw-i10); }
+.hwy-pill[data-hwy="I-35"] { background: var(--hw-i35); color: #fff; border-color: var(--hw-i35); }
+.hwy-pill[data-hwy="I-45"] { background: var(--hw-i45); color: #fff; border-color: var(--hw-i45); }
+.hwy-pill.off { opacity: .3; }
+
+/* ── Layer checkboxes ──────────────────────────────────────────────── */
+.layer-checks { display: flex; flex-direction: column; gap: .3rem; }
+.layer-check {
+  display: flex; align-items: center; gap: .4rem;
+  font-size: .85rem; cursor: pointer; user-select: none;
+}
+.layer-check input[type="checkbox"] { cursor: pointer; accent-color: var(--link); }
+
+/* ── KPI cards ─────────────────────────────────────────────────────── */
+.kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border);
+  padding: .5rem .6rem;
+}
+.kpi-card.blue  { border-left-color: var(--charger); }
+.kpi-card.red   { border-left-color: var(--desert); }
+.kpi-card.green { border-left-color: var(--covered); }
+.kpi-card.orange{ border-left-color: var(--hw-i10); }
+.kpi-value { font-size: 1.35rem; font-weight: 600; line-height: 1.1; }
+.kpi-label { font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+/* ── Chart containers ──────────────────────────────────────────────── */
+.chart-wrap { position: relative; width: 100%; }
+.chart-wrap canvas { max-width: 100%; }
+
+/* ── Highway comparison table ──────────────────────────────────────── */
+.hwy-table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+.hwy-table th {
+  text-align: left; font-weight: 600; font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); border-bottom: 1px solid var(--border);
+  padding: 3px 4px;
+}
+.hwy-table td { padding: 4px 4px; border-bottom: 1px solid var(--border); }
+.hwy-dot {
+  display: inline-block; width: 8px; height: 8px;
+  margin-right: 4px; vertical-align: middle;
+}
+
+/* ── Floating insight window ───────────────────────────────────────── */
+#insight-window {
+  position: absolute;
+  top: 12px; right: 12px;
+  z-index: 1000;
+  width: 240px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-top: 3px solid #2780e3;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.12);
+  font-size: .8rem;
+  transition: background .2s;
+}
+#insight-titlebar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .35rem .55rem;
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border);
+  cursor: default;
+  user-select: none;
+}
+#insight-titlebar span {
+  font-weight: 600; font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+}
+#insight-minimize {
+  background: none; border: 1px solid var(--border);
+  color: var(--muted); cursor: pointer;
+  font-size: .7rem; line-height: 1;
+  padding: 1px 5px; font-family: var(--font);
+}
+#insight-minimize:hover { background: var(--border); }
+#insight-body {
+  padding: .55rem .65rem;
+  line-height: 1.55;
+}
+#insight-body ul { padding-left: 1rem; margin: 0; }
+#insight-body li { margin-bottom: .25rem; }
+#insight-body li span.hi   { font-weight: 600; }
+#insight-body li span.bad  { color: #c0392b; font-weight: 600; }
+#insight-body li span.good { color: #27ae60; font-weight: 600; }
+#insight-body.minimized { display: none; }
+
+/* ── Inspector card ────────────────────────────────────────────────── */
+#inspector {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: .6rem .7rem;
+  font-size: .85rem;
+  min-height: 70px;
+}
+#inspector .ins-title { font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+#inspector .ins-row { display: flex; justify-content: space-between; margin: 2px 0; }
+#inspector .ins-key { color: var(--muted); }
+#inspector .ins-val { font-weight: 600; }
+#inspector .ins-badge {
+  display: inline-block; padding: 1px 7px; font-size: .75rem;
+  font-weight: 600; color: #fff;
+}
+#inspector .ins-badge.desert  { background: var(--desert); }
+#inspector .ins-badge.covered { background: var(--covered); }
+#inspector .ins-placeholder   { color: var(--muted); font-style: italic; font-size: .82rem; }
+
+/* ── Reset link ────────────────────────────────────────────────────── */
+.reset-link {
+  font-size: .75rem; color: var(--link); cursor: pointer;
+  background: none; border: none; font-family: var(--font);
+  text-decoration: underline; margin-top: .3rem; display: inline-block;
+}
+
+/* ── Legend overlay ────────────────────────────────────────────────── */
+.map-legend {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: .5rem .65rem;
+  font-size: .75rem;
+  line-height: 1.8;
+  min-width: 160px;
+}
+.map-legend b { display: block; font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 2px; }
+.legend-row { display: flex; align-items: center; gap: 6px; }
+.legend-dot { width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; }
+.legend-diamond { width: 8px; height: 8px; flex-shrink: 0; transform: rotate(45deg); }
+.legend-line { width: 18px; height: 3px; flex-shrink: 0; }
+
+/* ── Guide modal ───────────────────────────────────────────────────── */
+#guide-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+#guide-overlay.hidden { display: none; }
+#guide-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  max-width: 480px;
+  width: 90%;
+  padding: 1.5rem;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+#guide-card h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: .75rem; }
+#guide-card p  { color: var(--body-fg); margin-bottom: .5rem; }
+#guide-card ul { padding-left: 1.2rem; color: var(--body-fg); margin-bottom: .75rem; }
+#guide-card li { margin-bottom: .25rem; }
+#guide-close {
+  margin-top: .75rem; padding: 6px 18px;
+  background: var(--charger); color: #fff; border: none;
+  cursor: pointer; font-family: var(--font); font-size: .9rem;
+}
+
+/* ── Leaflet overrides ─────────────────────────────────────────────── */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: var(--card-bg); color: var(--body-fg);
+  border: 1px solid var(--border); border-radius: 0;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.15);
+}
+.leaflet-popup-content { font-family: var(--font); font-size: .85rem; line-height: 1.5; margin: .5rem .6rem; }
+.popup-title { font-weight: 600; margin-bottom: .3rem; }
+.popup-row   { display: flex; justify-content: space-between; gap: 1rem; }
+.popup-key   { color: var(--muted); }
+.popup-badge {
+  display: inline-block; padding: 0 6px; font-size: .75rem;
+  font-weight: 600; color: #fff;
+}
+.popup-badge.desert  { background: var(--desert); }
+.popup-badge.covered { background: var(--covered); }
+.leaflet-bar a, .leaflet-bar a:hover { border-radius: 0 !important; }
+
+/* ── Distance filter ──────────────────────────────────────────────── */
+.dist-filter { margin-top: .3rem; }
+.dist-mode-toggle { display: flex; gap: .3rem; margin-bottom: .4rem; }
+.dist-mode {
+  padding: 2px 10px; font-size: .78rem; font-weight: 600;
+  font-family: var(--font); cursor: pointer;
+  background: var(--panel-bg); color: var(--muted);
+  border: 1.5px solid var(--border); transition: all .15s;
+}
+.dist-mode.active {
+  background: var(--charger); color: #fff; border-color: var(--charger);
+}
+.dist-slider-row {
+  display: flex; align-items: center; gap: .5rem;
+}
+.dist-slider-row input[type="range"] {
+  flex: 1; height: 4px; accent-color: var(--charger); cursor: pointer;
+}
+.dist-slider-row input[type="number"] {
+  width: 52px; padding: 2px 4px; font-size: .85rem;
+  font-family: var(--font); text-align: center;
+  border: 1px solid var(--border); background: var(--card-bg);
+  color: var(--body-fg);
+}
+.dist-slider-row input[type="number"]::-webkit-inner-spin-button,
+.dist-slider-row input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; margin: 0;
+}
+.dist-slider-row .dist-unit { font-size: .8rem; color: var(--muted); }
+
+/* ── Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); }
+</style>
+</head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-title">Texas Triangle — EV Charging Gap Analysis</div>
+  <div class="nav-sub">Can electric trucks run the Triangle today?</div>
+  <div class="nav-spacer"></div>
+  <a class="nav-back" href="https://nadhira.me/blog.html">← Blog</a>
+  <button id="guide-btn" title="Methodology">?</button>
+  <button id="theme-toggle" title="Toggle dark mode">☾</button>
+</nav>
+
+<!-- ── Main ────────────────────────────────────────────────────────── -->
+<div id="main">
+
+  <!-- Left panel -->
+  <div id="left-panel">
+    <div class="panel-scroll">
+
+      <div class="section-label">Highways</div>
+      <div class="hwy-pills">
+        <div class="hwy-pill" data-hwy="I-10">I-10</div>
+        <div class="hwy-pill" data-hwy="I-35">I-35</div>
+        <div class="hwy-pill" data-hwy="I-45">I-45</div>
+      </div>
+
+      <div class="section-label">Layers</div>
+      <div class="layer-checks">
+        <label class="layer-check"><input type="checkbox" id="lyr-chargers" checked> DC Fast Chargers</label>
+        <label class="layer-check"><input type="checkbox" id="lyr-trucks" checked> Truck Stops</label>
+        <label class="layer-check"><input type="checkbox" id="lyr-corridor" checked> Corridor Buffer</label>
+        <label class="layer-check"><input type="checkbox" id="lyr-desert"> Desert Points Only</label>
+      </div>
+      <div class="section-label">Distance Filter</div>
+      <div class="dist-filter">
+        <div class="dist-mode-toggle">
+          <button class="dist-mode active" data-mode="gte">Show &ge;</button>
+          <button class="dist-mode" data-mode="lte">Show &le;</button>
+        </div>
+        <div class="dist-slider-row">
+          <input type="range" id="dist-slider" min="0" max="50" value="0" step="1">
+          <input type="number" id="dist-value" min="0" max="50" value="0" step="0.5">
+          <span class="dist-unit">mi</span>
+        </div>
+      </div>
+
+      <button class="reset-link" id="reset-btn">Reset filters</button>
+
+      <div class="section-label">Summary</div>
+      <div class="kpi-grid">
+        <div class="kpi-card blue">
+          <div class="kpi-value" id="kpi-chargers">629</div>
+          <div class="kpi-label">DC fast chargers</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-value" id="kpi-deserts">0 <span style="font-size:.85rem">(0%)</span></div>
+          <div class="kpi-label">charging deserts</div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="kpi-value" id="kpi-longest">47.5 mi</div>
+          <div class="kpi-label">longest gap (I-10)</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-value" id="kpi-median">1.8 mi</div>
+          <div class="kpi-label">median distance</div>
+        </div>
+      </div>
+
+      <div class="section-label">Max Gap by Highway</div>
+      <div class="chart-wrap" style="height:90px">
+        <canvas id="chart-maxgap"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Center map -->
+  <div id="map-container">
+    <div id="map"></div>
+
+    <!-- Floating insight window -->
+    <div id="insight-window">
+      <div id="insight-titlebar">
+        <span>Key Insights</span>
+        <button id="insight-minimize" title="Minimize">—</button>
+      </div>
+      <div id="insight-body">
+        <ul>
+          <li><span class="good">The Texas Triangle is fully covered</span> — 0 charging deserts within the corridor.</li>
+          <li>Closest to a gap: <span class="hi">47.5 mi on I-10</span>, just under the 50-mile threshold.</li>
+          <li>Median distance to nearest charger: <span class="hi">1.8 mi</span> — dense coverage.</li>
+          <li>629 DC Fast chargers serve the corridor; Tesla &amp; ChargePoint lead.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div id="right-panel">
+    <div class="panel-scroll">
+
+      <div class="section-label">Selected Feature</div>
+      <div id="inspector">
+        <div class="ins-placeholder">Click a point on the map for details.</div>
+      </div>
+
+      <div class="section-label">By Highway</div>
+      <table class="hwy-table">
+        <thead>
+          <tr>
+            <th>Hwy</th><th>Points</th><th>Deserts</th><th>Max Gap</th>
+          </tr>
+        </thead>
+        <tbody id="hwy-table-body"></tbody>
+      </table>
+
+      <div class="section-label">Distance Distribution</div>
+      <div class="chart-wrap" style="height:160px">
+        <canvas id="chart-hist"></canvas>
+      </div>
+
+      <div class="section-label">Charger Networks</div>
+      <div class="chart-wrap" style="height:190px">
+        <canvas id="chart-donut"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- Status bar -->
+<div id="statusbar">
+  <span>Lat: <b id="sb-lat">—</b> Lon: <b id="sb-lon">—</b></span>
+  <span>Showing <b id="sb-pts">818</b> points · <b id="sb-chargers">629</b> chargers</span>
+  <span style="margin-left:auto">Zoom: <b id="sb-zoom">7</b> · Data: AFDC + OSM</span>
+</div>
+
+<!-- Guide modal -->
+<div id="guide-overlay" class="hidden">
+  <div id="guide-card">
+    <h2>About This Dashboard</h2>
+    <p><strong>Question:</strong> Can an electric semi-truck run the Texas Triangle freight corridor (I-10/I-35/I-45) today?</p>
+    <p><strong>Methodology:</strong></p>
+    <ul>
+      <li>A 25-mile buffer was drawn around I-10, I-35, and I-45.</li>
+      <li>Sample points were placed every 10 miles along each highway.</li>
+      <li>For each point, the nearest DC Fast charger within the corridor was found.</li>
+      <li>Points more than 50 miles from a charger are flagged as <strong>Charging Deserts</strong> — too far for a loaded electric semi.</li>
+    </ul>
+    <p><strong>Data sources:</strong> AFDC (US Dept. of Energy), OpenStreetMap, TIGER/Line.</p>
+    <button id="guide-close">Got it</button>
+  </div>
+</div>
+
+<!-- Data -->
+<script src="data/meta.js"></script>
+<script src="data/gap_analysis.js"></script>
+<script src="data/chargers.js"></script>
+<script src="data/truck_stops.js"></script>
+<script src="data/corridor.js"></script>
+<script src="data/highways.js"></script>
+<script src="data/texas_border.js"></script>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────
+const state = {
+  highways:  { "I-10": true, "I-35": true, "I-45": true },
+  layers:    { chargers: true, truckStops: true, corridor: true, desertOnly: false },
+  theme:     "light",
+  distThreshold: 0,
+  distMode:      "gte",
+};
+
+// ── Map ───────────────────────────────────────────────────────────────────
+const TILES_LIGHT = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+const TILES_DARK  = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+const TILE_ATTR   = '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>';
+
+const map = L.map("map", {
+  center: [30.5, -97.5],
+  zoom: 7,
+  preferCanvas: true,
+  zoomControl: true,
+});
+
+const tileLayer = L.tileLayer(TILES_LIGHT, { attribution: TILE_ATTR, maxZoom: 18 }).addTo(map);
+
+// ── Layer groups ──────────────────────────────────────────────────────────
+const lgTexas    = L.layerGroup().addTo(map);
+const lgCorridor = L.layerGroup().addTo(map);
+const lgHighways = L.layerGroup().addTo(map);
+const lgGap      = L.layerGroup().addTo(map);
+const lgChargers = L.layerGroup().addTo(map);
+const lgTrucks   = L.layerGroup().addTo(map);
+
+// ── Texas border ──────────────────────────────────────────────────────────
+L.geoJSON({ type: "Feature", geometry: TEXAS_BORDER }, {
+  style: { fillColor: "transparent", color: "#444", weight: 2, opacity: 0.7, dashArray: "6 3" },
+  interactive: false,
+}).addTo(lgTexas);
+
+// ── Color helpers ─────────────────────────────────────────────────────────
+function gapColor(d) {
+  if (d <= 5)  return "#27ae60";
+  if (d <= 15) return "#f39c12";
+  if (d <= 25) return "#e67e22";
+  return "#c0392b";
+}
+
+const HWY_COLOR = { "I-10": "#e67e22", "I-35": "#c0392b", "I-45": "#27ae60" };
+
+// ── Corridor ──────────────────────────────────────────────────────────────
+function buildCorridor() {
+  lgCorridor.clearLayers();
+  L.geoJSON({ type: "Feature", geometry: CORRIDOR }, {
+    style: {
+      fillColor: "#2780e3", fillOpacity: 0.07,
+      color: "#2780e3", weight: 1, opacity: 0.3,
+    },
+    interactive: false,
+  }).addTo(lgCorridor);
+}
+buildCorridor();
+
+// ── Highways ──────────────────────────────────────────────────────────────
+function buildHighways() {
+  lgHighways.clearLayers();
+  HIGHWAYS.features.forEach(feat => {
+    const hw = feat.properties.highway;
+    if (!state.highways[hw]) return;
+    L.geoJSON(feat, {
+      style: { color: HWY_COLOR[hw] || "#888", weight: 3, opacity: .7 },
+      interactive: false,
+    }).addTo(lgHighways);
+  });
+}
+buildHighways();
+
+// ── Gap points ────────────────────────────────────────────────────────────
+function buildGapPoints() {
+  lgGap.clearLayers();
+  let shown = 0;
+  GAP_POINTS.forEach(p => {
+    if (!state.highways[p.highway]) return;
+    if (state.layers.desertOnly && p.is_desert !== 1) return;
+    if (state.distThreshold > 0) {
+      if (state.distMode === "gte" && p.dist_mi < state.distThreshold) return;
+      if (state.distMode === "lte" && p.dist_mi > state.distThreshold) return;
+    }
+    shown++;
+    const isDesert = p.is_desert === 1;
+    const color = gapColor(p.dist_mi);
+    const marker = L.circleMarker([p.lat, p.lon], {
+      radius:      isDesert ? 7 : 4,
+      fillColor:   color,
+      color:       isDesert ? "#fff" : color,
+      weight:      isDesert ? 1.5 : 0.5,
+      fillOpacity: 0.85,
+      opacity:     1,
+    });
+    marker.bindPopup(() => {
+      const badge = isDesert
+        ? '<span class="popup-badge desert">Charging Desert</span>'
+        : '<span class="popup-badge covered">Covered</span>';
+      return `<div class="popup-title">${p.highway} — Mile ${p.dist_along_mi}</div>
+        <div class="popup-row"><span class="popup-key">Distance to charger</span><span>${p.dist_mi} mi</span></div>
+        <div class="popup-row"><span class="popup-key">Status</span>${badge}</div>`;
+    });
+    marker.on("click", () => showInspectorGap(p));
+    marker.addTo(lgGap);
+  });
+  return shown;
+}
+
+// ── Chargers ──────────────────────────────────────────────────────────────
+function buildChargers() {
+  lgChargers.clearLayers();
+  CHARGERS.forEach(c => {
+    const marker = L.circleMarker([c.lat, c.lon], {
+      radius: 5,
+      fillColor: "#2780e3", color: "#fff",
+      weight: 1, fillOpacity: 0.85,
+    });
+    marker.bindPopup(
+      `<div class="popup-title">${c.name || "DC Fast Charger"}</div>
+       <div class="popup-row"><span class="popup-key">City</span><span>${c.city}</span></div>
+       <div class="popup-row"><span class="popup-key">DC Fast ports</span><span>${c.dcFast || "—"}</span></div>
+       <div class="popup-row"><span class="popup-key">Network</span><span>${c.network}</span></div>`
+    );
+    marker.on("click", () => showInspectorCharger(c));
+    marker.addTo(lgChargers);
+  });
+}
+buildChargers();
+
+// ── Truck stops ───────────────────────────────────────────────────────────
+const truckIcon = L.divIcon({
+  html: '<div style="width:10px;height:10px;background:#8e44ad;border:1px solid #fff;transform:rotate(45deg);margin-top:-1px"></div>',
+  className: "",
+  iconSize: [10, 10],
+  iconAnchor: [5, 5],
+});
+
+function buildTruckStops() {
+  lgTrucks.clearLayers();
+  TRUCK_STOPS.forEach(t => {
+    const marker = L.marker([t.lat, t.lon], { icon: truckIcon });
+    marker.bindPopup(
+      `<div class="popup-title">${t.name}</div>
+       ${t.brand ? `<div class="popup-row"><span class="popup-key">Brand</span><span>${t.brand}</span></div>` : ""}`
+    );
+    marker.on("click", () => showInspectorTruck(t));
+    marker.addTo(lgTrucks);
+  });
+}
+buildTruckStops();
+
+// ── Map legend ────────────────────────────────────────────────────────────
+const legendCtrl = L.control({ position: "bottomleft" });
+legendCtrl.onAdd = function() {
+  const div = L.DomUtil.create("div", "map-legend");
+  div.innerHTML = `
+    <b>Gap Points (dist to charger)</b>
+    <div class="legend-row"><span class="legend-dot" style="background:#27ae60"></span> 0–5 mi (well covered)</div>
+    <div class="legend-row"><span class="legend-dot" style="background:#f39c12"></span> 5–15 mi</div>
+    <div class="legend-row"><span class="legend-dot" style="background:#e67e22"></span> 15–25 mi</div>
+    <div class="legend-row"><span class="legend-dot" style="background:#c0392b"></span> &gt;25 mi</div>
+    <b style="margin-top:6px">Other layers</b>
+    <div class="legend-row"><span class="legend-dot" style="background:#2780e3"></span> DC Fast Charger</div>
+    <div class="legend-row"><span class="legend-diamond" style="background:#8e44ad"></span> Truck Stop</div>`;
+  return div;
+};
+legendCtrl.addTo(map);
+
+// ── Inspector ─────────────────────────────────────────────────────────────
+const inspector = document.getElementById("inspector");
+
+function showInspectorGap(p) {
+  const isDesert = p.is_desert === 1;
+  const badge = isDesert
+    ? '<span class="ins-badge desert">Charging Desert</span>'
+    : '<span class="ins-badge covered">Covered</span>';
+  inspector.innerHTML = `
+    <div class="ins-title">${p.highway} — Mile ${p.dist_along_mi}</div>
+    <div class="ins-row"><span class="ins-key">Distance to charger</span><span class="ins-val">${p.dist_mi} mi</span></div>
+    <div class="ins-row"><span class="ins-key">Status</span>${badge}</div>
+    <div class="ins-row" style="margin-top:.3rem"><span class="ins-key" style="font-size:.75rem">Sample point every 10 mi along highway</span></div>`;
+}
+
+function showInspectorCharger(c) {
+  inspector.innerHTML = `
+    <div class="ins-title">${c.name || "DC Fast Charger"}</div>
+    <div class="ins-row"><span class="ins-key">City</span><span class="ins-val">${c.city}</span></div>
+    <div class="ins-row"><span class="ins-key">DC Fast ports</span><span class="ins-val">${c.dcFast || "—"}</span></div>
+    <div class="ins-row"><span class="ins-key">Network</span><span class="ins-val">${c.network}</span></div>`;
+}
+
+function showInspectorTruck(t) {
+  inspector.innerHTML = `
+    <div class="ins-title">${t.name}</div>
+    ${t.brand ? `<div class="ins-row"><span class="ins-key">Brand</span><span class="ins-val">${t.brand}</span></div>` : ""}
+    <div class="ins-row"><span class="ins-key">Type</span><span class="ins-val">Truck stop (no DC fast charging)</span></div>`;
+}
+
+// ── Highway table ─────────────────────────────────────────────────────────
+function buildHwyTable() {
+  const tbody = document.getElementById("hwy-table-body");
+  tbody.innerHTML = "";
+  ["I-10","I-35","I-45"].forEach(hw => {
+    const d = META.byHighway[hw];
+    if (!d) return;
+    const visible = state.highways[hw];
+    const color = HWY_COLOR[hw];
+    tbody.innerHTML += `<tr style="opacity:${visible ? 1 : .35}">
+      <td><span class="hwy-dot" style="background:${color}"></span>${hw}</td>
+      <td>${d.points}</td>
+      <td>${d.deserts}</td>
+      <td>${d.maxGap} mi</td>
+    </tr>`;
+  });
+}
+buildHwyTable();
+
+// ── Charts ────────────────────────────────────────────────────────────────
+function chartDefaults() {
+  const dark = state.theme === "dark";
+  return {
+    color:       dark ? "#ccc" : "#212529",
+    borderColor: dark ? "#333" : "#dee2e6",
+    gridColor:   dark ? "rgba(255,255,255,.08)" : "rgba(0,0,0,.06)",
+  };
+}
+
+// Max gap bar
+let chartMaxGap = new Chart(document.getElementById("chart-maxgap"), {
+  type: "bar",
+  data: {
+    labels: ["I-10","I-35","I-45"],
+    datasets: [{
+      data: [
+        META.byHighway["I-10"].maxGap,
+        META.byHighway["I-35"].maxGap,
+        META.byHighway["I-45"].maxGap,
+      ],
+      backgroundColor: [HWY_COLOR["I-10"], HWY_COLOR["I-35"], HWY_COLOR["I-45"]],
+      borderWidth: 0,
+    }],
+  },
+  options: {
+    indexAxis: "y",
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.raw} mi` } },
+    },
+    scales: {
+      x: {
+        ticks: { font: { size: 10 } },
+        title: { display: true, text: "Miles", font: { size: 10 } },
+        grid: { color: chartDefaults().gridColor },
+      },
+      y: { ticks: { font: { size: 11, weight: "600" } }, grid: { display: false } },
+    },
+  },
+});
+
+// Histogram
+function histData() {
+  return META.histBins.map(b => ({
+    "I-10": state.highways["I-10"] ? b["I-10"] : 0,
+    "I-35": state.highways["I-35"] ? b["I-35"] : 0,
+    "I-45": state.highways["I-45"] ? b["I-45"] : 0,
+  }));
+}
+let chartHist = new Chart(document.getElementById("chart-hist"), {
+  type: "bar",
+  data: {
+    labels: META.histBins.map(b => b.label),
+    datasets: [
+      { label: "I-10", data: META.histBins.map(b => b["I-10"]), backgroundColor: HWY_COLOR["I-10"], borderWidth: 0 },
+      { label: "I-35", data: META.histBins.map(b => b["I-35"]), backgroundColor: HWY_COLOR["I-35"], borderWidth: 0 },
+      { label: "I-45", data: META.histBins.map(b => b["I-45"]), backgroundColor: HWY_COLOR["I-45"], borderWidth: 0 },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 10 } } },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: { font: { size: 9 } },
+        title: { display: true, text: "Miles to charger", font: { size: 9 } },
+        grid: { color: chartDefaults().gridColor },
+      },
+      y: {
+        stacked: true,
+        ticks: { font: { size: 9 } },
+        title: { display: true, text: "Points", font: { size: 9 } },
+        grid: { color: chartDefaults().gridColor },
+      },
+    },
+  },
+});
+
+// Donut
+const netKeys   = Object.keys(META.networkCounts);
+const netValues = netKeys.map(k => META.networkCounts[k]);
+const donutColors = ["#c0392b","#2780e3","#27ae60","#e67e22","#f39c12","#8e44ad","#aaa"];
+let chartDonut = new Chart(document.getElementById("chart-donut"), {
+  type: "doughnut",
+  data: {
+    labels: netKeys,
+    datasets: [{ data: netValues, backgroundColor: donutColors, borderWidth: 1 }],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: "58%",
+    plugins: {
+      legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 9 }, padding: 6 } },
+    },
+  },
+});
+
+// ── Apply filters ─────────────────────────────────────────────────────────
+function applyFilters() {
+  // Gap points
+  const shownPts = buildGapPoints();
+
+  // Highways
+  buildHighways();
+
+  // Charger / truck stop visibility
+  lgChargers[state.layers.chargers ? "addTo" : "remove"](map);
+  lgTrucks  [state.layers.truckStops ? "addTo" : "remove"](map);
+  lgCorridor[state.layers.corridor ? "addTo" : "remove"](map);
+
+  // KPIs
+  const activePts = GAP_POINTS.filter(p => state.highways[p.highway]);
+  const activeDeserts = activePts.filter(p => p.is_desert === 1);
+  const longest = activePts.reduce((m, p) => p.dist_mi > m.dist_mi ? p : m, { dist_mi: 0, highway: "—" });
+  const sortedD = activePts.map(p => p.dist_mi).sort((a, b) => a - b);
+  const median  = sortedD.length ? sortedD[Math.floor(sortedD.length / 2)] : 0;
+
+  document.getElementById("kpi-chargers").textContent = META.totalChargers;
+  document.getElementById("kpi-deserts").innerHTML =
+    `${activeDeserts.length} <span style="font-size:.85rem">(${activePts.length ? (activeDeserts.length/activePts.length*100).toFixed(1) : 0}%)</span>`;
+  document.getElementById("kpi-longest").textContent = `${longest.dist_mi} mi`;
+  document.getElementById("kpi-median").textContent  = `${median.toFixed(1)} mi`;
+
+  // Highway table
+  buildHwyTable();
+
+  // Histogram
+  chartHist.data.datasets[0].data = META.histBins.map(b => state.highways["I-10"] ? b["I-10"] : 0);
+  chartHist.data.datasets[1].data = META.histBins.map(b => state.highways["I-35"] ? b["I-35"] : 0);
+  chartHist.data.datasets[2].data = META.histBins.map(b => state.highways["I-45"] ? b["I-45"] : 0);
+  chartHist.update();
+
+  // Status bar counts
+  document.getElementById("sb-pts").textContent = shownPts;
+  document.getElementById("sb-chargers").textContent =
+    state.layers.chargers ? META.totalChargers : 0;
+}
+
+// ── Filter event wiring ───────────────────────────────────────────────────
+document.querySelectorAll(".hwy-pill").forEach(pill => {
+  pill.addEventListener("click", () => {
+    const hw = pill.dataset.hwy;
+    state.highways[hw] = !state.highways[hw];
+    pill.classList.toggle("off", !state.highways[hw]);
+    applyFilters();
+  });
+});
+
+document.getElementById("lyr-chargers").addEventListener("change", e => {
+  state.layers.chargers = e.target.checked; applyFilters();
+});
+document.getElementById("lyr-trucks").addEventListener("change", e => {
+  state.layers.truckStops = e.target.checked; applyFilters();
+});
+document.getElementById("lyr-corridor").addEventListener("change", e => {
+  state.layers.corridor = e.target.checked; applyFilters();
+});
+document.getElementById("lyr-desert").addEventListener("change", e => {
+  state.layers.desertOnly = e.target.checked; applyFilters();
+});
+
+// ── Distance filter ───────────────────────────────────────────────────────
+const distSlider = document.getElementById("dist-slider");
+const distValue  = document.getElementById("dist-value");
+
+distSlider.addEventListener("input", () => {
+  const v = parseFloat(distSlider.value);
+  distValue.value = v;
+  state.distThreshold = v;
+  applyFilters();
+});
+
+distValue.addEventListener("input", () => {
+  let v = parseFloat(distValue.value);
+  if (isNaN(v)) return;
+  v = Math.max(0, Math.min(50, v));
+  distSlider.value = v;
+  state.distThreshold = v;
+  applyFilters();
+});
+
+document.querySelectorAll(".dist-mode").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".dist-mode").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    state.distMode = btn.dataset.mode;
+    applyFilters();
+  });
+});
+
+document.getElementById("reset-btn").addEventListener("click", () => {
+  state.highways = { "I-10": true, "I-35": true, "I-45": true };
+  state.layers   = { chargers: true, truckStops: true, corridor: true, desertOnly: false };
+  state.distThreshold = 0;
+  state.distMode      = "gte";
+  document.querySelectorAll(".hwy-pill").forEach(p => p.classList.remove("off"));
+  document.getElementById("lyr-chargers").checked = true;
+  document.getElementById("lyr-trucks").checked   = true;
+  document.getElementById("lyr-corridor").checked = true;
+  document.getElementById("lyr-desert").checked   = false;
+  distSlider.value = 0;
+  distValue.value  = 0;
+  document.querySelectorAll(".dist-mode").forEach(b => b.classList.toggle("active", b.dataset.mode === "gte"));
+  buildChargers();
+  buildTruckStops();
+  applyFilters();
+});
+
+// ── Status bar ────────────────────────────────────────────────────────────
+map.on("mousemove", e => {
+  document.getElementById("sb-lat").textContent = e.latlng.lat.toFixed(4);
+  document.getElementById("sb-lon").textContent = e.latlng.lng.toFixed(4);
+});
+map.on("zoomend", () => {
+  document.getElementById("sb-zoom").textContent = map.getZoom();
+});
+
+// ── Theme toggle ──────────────────────────────────────────────────────────
+function applyTheme(theme) {
+  state.theme = theme;
+  document.documentElement.setAttribute("data-theme", theme);
+  document.getElementById("theme-toggle").textContent = theme === "dark" ? "☀" : "☾";
+  tileLayer.setUrl(theme === "dark" ? TILES_DARK : TILES_LIGHT);
+  localStorage.setItem("ev-dash-theme", theme);
+
+  // Update chart colors
+  const g = chartDefaults();
+  [chartMaxGap, chartHist].forEach(ch => {
+    ch.options.scales.x.grid.color = g.gridColor;
+    if (ch.options.scales.y) ch.options.scales.y.grid.color = g.gridColor;
+    ch.update();
+  });
+}
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  applyTheme(state.theme === "light" ? "dark" : "light");
+});
+
+// Restore saved theme
+const savedTheme = localStorage.getItem("ev-dash-theme");
+if (savedTheme && savedTheme !== "light") applyTheme(savedTheme);
+
+// ── Guide modal ───────────────────────────────────────────────────────────
+const guideOverlay = document.getElementById("guide-overlay");
+
+function showGuide() { guideOverlay.classList.remove("hidden"); }
+function hideGuide() { guideOverlay.classList.add("hidden"); }
+
+document.getElementById("guide-btn").addEventListener("click", showGuide);
+document.getElementById("guide-close").addEventListener("click", hideGuide);
+guideOverlay.addEventListener("click", e => { if (e.target === guideOverlay) hideGuide(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") hideGuide(); });
+
+// ── Insight window minimize ───────────────────────────────────────────────
+const insightBody = document.getElementById("insight-body");
+const insightBtn  = document.getElementById("insight-minimize");
+insightBtn.addEventListener("click", () => {
+  const minimized = insightBody.classList.toggle("minimized");
+  insightBtn.textContent = minimized ? "+" : "—";
+  insightBtn.title = minimized ? "Expand" : "Minimize";
+});
+
+// Show on first visit
+if (!localStorage.getItem("ev-dash-visited")) {
+  showGuide();
+  localStorage.setItem("ev-dash-visited", "1");
+}
+</script>
+</body>
+</html>
