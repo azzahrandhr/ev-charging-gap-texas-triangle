@@ -5,7 +5,7 @@
 2. How vulnerable is the corridor to disasters that could cause charging outages?
 
 Read the full analysis: [nadhira.me/posts/202604_texas-triangle-ev-gap](https://nadhira.me/posts/202604_texas-triangle-ev-gap/)  
-Explore the interactive dashboard: [azzahrandhr.github.io/ev-charging-gap-dashboard](https://azzahrandhr.github.io/ev-charging-gap-dashboard/)
+Explore the interactive dashboard: [azzahrandhr.github.io/ev-charging-gap-dashboard](https://azzahrandhr.github.io/ev-charging-gap-texas-triangle/)
 
 ---
 
