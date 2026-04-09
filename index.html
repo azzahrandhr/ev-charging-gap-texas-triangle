@@ -393,6 +393,23 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); }
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  #main { flex-direction: column; }
+  #left-panel, #right-panel {
+    width: 100%; height: auto; max-height: 35vh;
+    border-left: none; border-right: none;
+  }
+  #left-panel  { border-bottom: 1px solid var(--border); }
+  #right-panel { border-top: 1px solid var(--border); }
+  #map-container { min-height: 40vh; }
+  #insight-window { width: 200px; font-size: .75rem; }
+}
+@media (max-width: 600px) {
+  #navbar .nav-sub { display: none; }
+  :root { --left-w: 100%; --right-w: 100%; }
+}
 </style>
 </head>
 <body>
@@ -426,6 +443,7 @@ body {
         <label class="layer-check"><input type="checkbox" id="lyr-chargers" checked> DC Fast Chargers</label>
         <label class="layer-check"><input type="checkbox" id="lyr-trucks" checked> Truck Stops</label>
         <label class="layer-check"><input type="checkbox" id="lyr-corridor" checked> Corridor Buffer</label>
+        <label class="layer-check"><input type="checkbox" id="lyr-penske" checked> Penske Facilities</label>
         <label class="layer-check"><input type="checkbox" id="lyr-desert"> Desert Points Only</label>
       </div>
       <div class="section-label">Distance Filter</div>
@@ -483,9 +501,9 @@ body {
       </div>
       <div id="insight-body">
         <ul>
-          <li><span class="good">The Texas Triangle is fully covered</span> — 0 charging deserts within the corridor.</li>
-          <li>Closest to a gap: <span class="hi">47.5 mi on I-10</span>, just under the 50-mile threshold.</li>
-          <li>Median distance to nearest charger: <span class="hi">1.8 mi</span> — dense coverage.</li>
+          <li><span class="bad">I-10 is the weak link</span> — a 47.5 mi gap means ~95 mi station-to-station, a de facto charging desert.</li>
+          <li><span class="good">I-35 and I-45 are well covered</span> — max gaps of 27.5 mi and 13.2 mi respectively.</li>
+          <li>Median distance to nearest charger: <span class="hi">1.8 mi</span> across most of the corridor.</li>
           <li>629 DC Fast chargers serve the corridor; Tesla &amp; ChargePoint lead.</li>
         </ul>
       </div>
@@ -543,9 +561,10 @@ body {
       <li>A 25-mile buffer was drawn around I-10, I-35, and I-45.</li>
       <li>Sample points were placed every 10 miles along each highway.</li>
       <li>For each point, the nearest DC Fast charger within the corridor was found.</li>
-      <li>Points more than 50 miles from a charger are flagged as <strong>Charging Deserts</strong> — too far for a loaded electric semi.</li>
+      <li>Points 30 miles or more from a charger are flagged as <strong>Charging Deserts</strong> — the station-to-station gap would exceed 60 mi, too far for a loaded electric semi.</li>
     </ul>
-    <p><strong>Data sources:</strong> AFDC (US Dept. of Energy), OpenStreetMap, TIGER/Line.</p>
+    <p><strong>Penske overlay:</strong> 154 Penske facilities in Texas are classified by electrification risk tier based on their proximity to charging gaps.</p>
+    <p><strong>Data sources:</strong> AFDC (US Dept. of Energy), OpenStreetMap, TIGER/Line, Penske Truck Rental.</p>
     <button id="guide-close">Got it</button>
   </div>
 </div>
@@ -558,12 +577,24 @@ body {
 <script src="data/corridor.js"></script>
 <script src="data/highways.js"></script>
 <script src="data/texas_border.js"></script>
+<script src="data/penske.js"></script>
 
 <script>
+// ── HTML escape helper ────────────────────────────────────────────────────
+function esc(s) {
+  if (s == null) return "";
+  const d = document.createElement("div");
+  d.textContent = String(s);
+  return d.innerHTML;
+}
+
+// ── Desert threshold ──────────────────────────────────────────────────────
+const DESERT_THRESHOLD = 30; // miles — points ≥ this are charging deserts
+
 // ── State ─────────────────────────────────────────────────────────────────
 const state = {
   highways:  { "I-10": true, "I-35": true, "I-45": true },
-  layers:    { chargers: true, truckStops: true, corridor: true, desertOnly: false },
+  layers:    { chargers: true, truckStops: true, corridor: true, desertOnly: false, penske: true },
   theme:     "light",
   distThreshold: 0,
   distMode:      "gte",
@@ -590,6 +621,7 @@ const lgHighways = L.layerGroup().addTo(map);
 const lgGap      = L.layerGroup().addTo(map);
 const lgChargers = L.layerGroup().addTo(map);
 const lgTrucks   = L.layerGroup().addTo(map);
+const lgPenske   = L.layerGroup().addTo(map);
 
 // ── Texas border ──────────────────────────────────────────────────────────
 L.geoJSON({ type: "Feature", geometry: TEXAS_BORDER }, {
@@ -601,7 +633,7 @@ L.geoJSON({ type: "Feature", geometry: TEXAS_BORDER }, {
 function gapColor(d) {
   if (d <= 5)  return "#27ae60";
   if (d <= 15) return "#f39c12";
-  if (d <= 25) return "#e67e22";
+  if (d < DESERT_THRESHOLD) return "#e67e22";
   return "#c0392b";
 }
 
@@ -640,13 +672,13 @@ function buildGapPoints() {
   let shown = 0;
   GAP_POINTS.forEach(p => {
     if (!state.highways[p.highway]) return;
-    if (state.layers.desertOnly && p.is_desert !== 1) return;
+    if (state.layers.desertOnly && p.dist_mi < DESERT_THRESHOLD) return;
     if (state.distThreshold > 0) {
       if (state.distMode === "gte" && p.dist_mi < state.distThreshold) return;
       if (state.distMode === "lte" && p.dist_mi > state.distThreshold) return;
     }
     shown++;
-    const isDesert = p.is_desert === 1;
+    const isDesert = p.dist_mi >= DESERT_THRESHOLD;
     const color = gapColor(p.dist_mi);
     const marker = L.circleMarker([p.lat, p.lon], {
       radius:      isDesert ? 7 : 4,
@@ -680,10 +712,10 @@ function buildChargers() {
       weight: 1, fillOpacity: 0.85,
     });
     marker.bindPopup(
-      `<div class="popup-title">${c.name || "DC Fast Charger"}</div>
-       <div class="popup-row"><span class="popup-key">City</span><span>${c.city}</span></div>
+      `<div class="popup-title">${esc(c.name) || "DC Fast Charger"}</div>
+       <div class="popup-row"><span class="popup-key">City</span><span>${esc(c.city)}</span></div>
        <div class="popup-row"><span class="popup-key">DC Fast ports</span><span>${c.dcFast || "—"}</span></div>
-       <div class="popup-row"><span class="popup-key">Network</span><span>${c.network}</span></div>`
+       <div class="popup-row"><span class="popup-key">Network</span><span>${esc(c.network)}</span></div>`
     );
     marker.on("click", () => showInspectorCharger(c));
     marker.addTo(lgChargers);
@@ -704,14 +736,65 @@ function buildTruckStops() {
   TRUCK_STOPS.forEach(t => {
     const marker = L.marker([t.lat, t.lon], { icon: truckIcon });
     marker.bindPopup(
-      `<div class="popup-title">${t.name}</div>
-       ${t.brand ? `<div class="popup-row"><span class="popup-key">Brand</span><span>${t.brand}</span></div>` : ""}`
+      `<div class="popup-title">${esc(t.name)}</div>
+       ${t.brand ? `<div class="popup-row"><span class="popup-key">Brand</span><span>${esc(t.brand)}</span></div>` : ""}`
     );
     marker.on("click", () => showInspectorTruck(t));
     marker.addTo(lgTrucks);
   });
 }
 buildTruckStops();
+
+// ── Penske facilities ────────────────────────────────────────────────────
+const PENSKE_COLORS = {
+  "Tier 1": "#27ae60",
+  "Tier 2": "#e67e22",
+  "Tier 3": "#c0392b",
+  "Off-corridor": "#95a5a6",
+};
+const PENSKE_LABELS = {
+  "Tier 1": "Resilient (I-35/I-45)",
+  "Tier 2": "Operational with caveats (I-10)",
+  "Tier 3": "Fragile (I-10 fragility zone)",
+  "Off-corridor": "Outside corridor",
+};
+
+function penskeStarIcon(color) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+    <polygon points="12,2 15.1,8.3 22,9.2 17,14.1 18.2,21 12,17.8 5.8,21 7,14.1 2,9.2 8.9,8.3"
+      fill="${color}" stroke="#fff" stroke-width="1.5"/>
+  </svg>`;
+  return L.divIcon({
+    html: svg,
+    className: "",
+    iconSize: [18, 18],
+    iconAnchor: [9, 9],
+  });
+}
+
+function buildPenskeLayer() {
+  lgPenske.clearLayers();
+  if (typeof PENSKE === "undefined") return;
+  PENSKE.forEach(p => {
+    // Filter on-corridor facilities by active highways
+    if (p.nearestHighway && p.riskTier !== "Off-corridor" && !state.highways[p.nearestHighway]) return;
+    const color = PENSKE_COLORS[p.riskTier] || "#95a5a6";
+    const marker = L.marker([p.lat, p.lon], {
+      icon: penskeStarIcon(color),
+    });
+    const tierLabel = PENSKE_LABELS[p.riskTier] || p.riskTier;
+    marker.bindPopup(
+      `<div class="popup-title">${esc(p.name)}</div>
+       <div class="popup-row"><span class="popup-key">Address</span><span>${esc(p.address)}, ${esc(p.city)}</span></div>
+       <div class="popup-row"><span class="popup-key">Type</span><span>${esc(p.facilityType)}</span></div>
+       <div class="popup-row"><span class="popup-key">Risk Tier</span><span style="color:${color};font-weight:600">${esc(tierLabel)}</span></div>
+       ${p.nearestHighway ? `<div class="popup-row"><span class="popup-key">Nearest Hwy</span><span>${esc(p.nearestHighway)}</span></div>` : ""}
+       <div class="popup-row"><span class="popup-key">Nearest Charger</span><span>${p.distChargerMi} mi</span></div>`
+    );
+    marker.addTo(lgPenske);
+  });
+}
+buildPenskeLayer();
 
 // ── Map legend ────────────────────────────────────────────────────────────
 const legendCtrl = L.control({ position: "bottomleft" });
@@ -721,11 +804,16 @@ legendCtrl.onAdd = function() {
     <b>Gap Points (dist to charger)</b>
     <div class="legend-row"><span class="legend-dot" style="background:#27ae60"></span> 0–5 mi (well covered)</div>
     <div class="legend-row"><span class="legend-dot" style="background:#f39c12"></span> 5–15 mi</div>
-    <div class="legend-row"><span class="legend-dot" style="background:#e67e22"></span> 15–25 mi</div>
-    <div class="legend-row"><span class="legend-dot" style="background:#c0392b"></span> &gt;25 mi</div>
+    <div class="legend-row"><span class="legend-dot" style="background:#e67e22"></span> 15–30 mi</div>
+    <div class="legend-row"><span class="legend-dot" style="background:#c0392b"></span> &ge;30 mi (desert)</div>
     <b style="margin-top:6px">Other layers</b>
     <div class="legend-row"><span class="legend-dot" style="background:#2780e3"></span> DC Fast Charger</div>
-    <div class="legend-row"><span class="legend-diamond" style="background:#8e44ad"></span> Truck Stop</div>`;
+    <div class="legend-row"><span class="legend-diamond" style="background:#8e44ad"></span> Truck Stop</div>
+    <b style="margin-top:6px">Penske Facilities</b>
+    <div class="legend-row"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px"><polygon points="12,2 15.1,8.3 22,9.2 17,14.1 18.2,21 12,17.8 5.8,21 7,14.1 2,9.2 8.9,8.3" fill="#27ae60" stroke="#fff" stroke-width="1.5"/></svg> Tier 1 — Resilient</div>
+    <div class="legend-row"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px"><polygon points="12,2 15.1,8.3 22,9.2 17,14.1 18.2,21 12,17.8 5.8,21 7,14.1 2,9.2 8.9,8.3" fill="#e67e22" stroke="#fff" stroke-width="1.5"/></svg> Tier 2 — Operational</div>
+    <div class="legend-row"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px"><polygon points="12,2 15.1,8.3 22,9.2 17,14.1 18.2,21 12,17.8 5.8,21 7,14.1 2,9.2 8.9,8.3" fill="#c0392b" stroke="#fff" stroke-width="1.5"/></svg> Tier 3 — Fragile</div>
+    <div class="legend-row"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px"><polygon points="12,2 15.1,8.3 22,9.2 17,14.1 18.2,21 12,17.8 5.8,21 7,14.1 2,9.2 8.9,8.3" fill="#95a5a6" stroke="#fff" stroke-width="1.5"/></svg> Off-corridor</div>`;
   return div;
 };
 legendCtrl.addTo(map);
@@ -734,7 +822,7 @@ legendCtrl.addTo(map);
 const inspector = document.getElementById("inspector");
 
 function showInspectorGap(p) {
-  const isDesert = p.is_desert === 1;
+  const isDesert = p.dist_mi >= DESERT_THRESHOLD;
   const badge = isDesert
     ? '<span class="ins-badge desert">Charging Desert</span>'
     : '<span class="ins-badge covered">Covered</span>';
@@ -747,16 +835,16 @@ function showInspectorGap(p) {
 
 function showInspectorCharger(c) {
   inspector.innerHTML = `
-    <div class="ins-title">${c.name || "DC Fast Charger"}</div>
-    <div class="ins-row"><span class="ins-key">City</span><span class="ins-val">${c.city}</span></div>
+    <div class="ins-title">${esc(c.name) || "DC Fast Charger"}</div>
+    <div class="ins-row"><span class="ins-key">City</span><span class="ins-val">${esc(c.city)}</span></div>
     <div class="ins-row"><span class="ins-key">DC Fast ports</span><span class="ins-val">${c.dcFast || "—"}</span></div>
-    <div class="ins-row"><span class="ins-key">Network</span><span class="ins-val">${c.network}</span></div>`;
+    <div class="ins-row"><span class="ins-key">Network</span><span class="ins-val">${esc(c.network)}</span></div>`;
 }
 
 function showInspectorTruck(t) {
   inspector.innerHTML = `
-    <div class="ins-title">${t.name}</div>
-    ${t.brand ? `<div class="ins-row"><span class="ins-key">Brand</span><span class="ins-val">${t.brand}</span></div>` : ""}
+    <div class="ins-title">${esc(t.name)}</div>
+    ${t.brand ? `<div class="ins-row"><span class="ins-key">Brand</span><span class="ins-val">${esc(t.brand)}</span></div>` : ""}
     <div class="ins-row"><span class="ins-key">Type</span><span class="ins-val">Truck stop (no DC fast charging)</span></div>`;
 }
 
@@ -769,10 +857,11 @@ function buildHwyTable() {
     if (!d) return;
     const visible = state.highways[hw];
     const color = HWY_COLOR[hw];
+    const deserts = GAP_POINTS.filter(p => p.highway === hw && p.dist_mi >= DESERT_THRESHOLD).length;
     tbody.innerHTML += `<tr style="opacity:${visible ? 1 : .35}">
       <td><span class="hwy-dot" style="background:${color}"></span>${hw}</td>
       <td>${d.points}</td>
-      <td>${d.deserts}</td>
+      <td>${deserts}</td>
       <td>${d.maxGap} mi</td>
     </tr>`;
   });
@@ -892,17 +981,24 @@ function applyFilters() {
   // Highways
   buildHighways();
 
+  // Rebuild Penske to reflect highway filter
+  buildPenskeLayer();
+
   // Charger / truck stop visibility
   lgChargers[state.layers.chargers ? "addTo" : "remove"](map);
   lgTrucks  [state.layers.truckStops ? "addTo" : "remove"](map);
   lgCorridor[state.layers.corridor ? "addTo" : "remove"](map);
+  lgPenske  [state.layers.penske ? "addTo" : "remove"](map);
 
   // KPIs
   const activePts = GAP_POINTS.filter(p => state.highways[p.highway]);
-  const activeDeserts = activePts.filter(p => p.is_desert === 1);
+  const activeDeserts = activePts.filter(p => p.dist_mi >= DESERT_THRESHOLD);
   const longest = activePts.reduce((m, p) => p.dist_mi > m.dist_mi ? p : m, { dist_mi: 0, highway: "—" });
   const sortedD = activePts.map(p => p.dist_mi).sort((a, b) => a - b);
-  const median  = sortedD.length ? sortedD[Math.floor(sortedD.length / 2)] : 0;
+  const mid = Math.floor(sortedD.length / 2);
+  const median = sortedD.length === 0 ? 0
+    : sortedD.length % 2 !== 0 ? sortedD[mid]
+    : (sortedD[mid - 1] + sortedD[mid]) / 2;
 
   document.getElementById("kpi-chargers").textContent = META.totalChargers;
   document.getElementById("kpi-deserts").innerHTML =
@@ -944,6 +1040,9 @@ document.getElementById("lyr-trucks").addEventListener("change", e => {
 document.getElementById("lyr-corridor").addEventListener("change", e => {
   state.layers.corridor = e.target.checked; applyFilters();
 });
+document.getElementById("lyr-penske").addEventListener("change", e => {
+  state.layers.penske = e.target.checked; applyFilters();
+});
 document.getElementById("lyr-desert").addEventListener("change", e => {
   state.layers.desertOnly = e.target.checked; applyFilters();
 });
@@ -979,13 +1078,14 @@ document.querySelectorAll(".dist-mode").forEach(btn => {
 
 document.getElementById("reset-btn").addEventListener("click", () => {
   state.highways = { "I-10": true, "I-35": true, "I-45": true };
-  state.layers   = { chargers: true, truckStops: true, corridor: true, desertOnly: false };
+  state.layers   = { chargers: true, truckStops: true, corridor: true, desertOnly: false, penske: true };
   state.distThreshold = 0;
   state.distMode      = "gte";
   document.querySelectorAll(".hwy-pill").forEach(p => p.classList.remove("off"));
   document.getElementById("lyr-chargers").checked = true;
   document.getElementById("lyr-trucks").checked   = true;
   document.getElementById("lyr-corridor").checked = true;
+  document.getElementById("lyr-penske").checked   = true;
   document.getElementById("lyr-desert").checked   = false;
   distSlider.value = 0;
   distValue.value  = 0;
@@ -1016,9 +1116,18 @@ function applyTheme(theme) {
   const g = chartDefaults();
   [chartMaxGap, chartHist].forEach(ch => {
     ch.options.scales.x.grid.color = g.gridColor;
-    if (ch.options.scales.y) ch.options.scales.y.grid.color = g.gridColor;
+    ch.options.scales.x.ticks.color = g.color;
+    if (ch.options.scales.x.title) ch.options.scales.x.title.color = g.color;
+    if (ch.options.scales.y) {
+      ch.options.scales.y.grid.color = g.gridColor;
+      ch.options.scales.y.ticks.color = g.color;
+      if (ch.options.scales.y.title) ch.options.scales.y.title.color = g.color;
+    }
     ch.update();
   });
+  // Donut legend
+  chartDonut.options.plugins.legend.labels.color = g.color;
+  chartDonut.update();
 }
 
 document.getElementById("theme-toggle").addEventListener("click", () => {
