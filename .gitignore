@@ -3,8 +3,8 @@ output/
 __pycache__/
 .ipynb_checkpoints/
 CLAUDE.md
-data/raw/csv
-data/shapefile
+data/raw/csv/
+data/shapefile/
 guide/
 output/
 .claude/
