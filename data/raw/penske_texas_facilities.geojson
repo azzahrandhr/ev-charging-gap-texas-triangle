@@ -1,0 +1,3134 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.808025,
+          32.445482
+        ]
+      },
+      "properties": {
+        "name": "Tlc Enterprises",
+        "address": "6202 South 7th",
+        "city": "ABILENE",
+        "state": "TX",
+        "zip": "79605",
+        "phone": "325-201-9043",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/abilene/019731/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.787129,
+          35.19115
+        ]
+      },
+      "properties": {
+        "name": "Penske Amarillo",
+        "address": "2004 S Bolton St",
+        "city": "AMARILLO",
+        "state": "TX",
+        "zip": "79103",
+        "phone": "806-731-8791",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/amarillo/629910/",
+        "facility_type": "Truck Leasing & Maintenance"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.050936,
+          32.736536
+        ]
+      },
+      "properties": {
+        "name": "Penske Arlington",
+        "address": "3206 E Abram St",
+        "city": "ARLINGTON",
+        "state": "TX",
+        "zip": "76010",
+        "phone": "817-640-9891",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/arlington/625110/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.853704,
+          32.200502
+        ]
+      },
+      "properties": {
+        "name": "Pit Stop Oil &amp; Lube",
+        "address": "406 S Palestine St",
+        "city": "ATHENS",
+        "state": "TX",
+        "zip": "75751",
+        "phone": "903-252-3227",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/athens/627332/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.972191,
+          33.233503
+        ]
+      },
+      "properties": {
+        "name": "Storage King",
+        "address": "10550 Fishtrap Road",
+        "city": "AUBREY",
+        "state": "TX",
+        "zip": "76227",
+        "phone": "940-248-5029",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/aubrey/602322/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.659296,
+          30.327096
+        ]
+      },
+      "properties": {
+        "name": "Penske Austin",
+        "address": "8201 Tuscany Way",
+        "city": "AUSTIN",
+        "state": "TX",
+        "zip": "78724",
+        "phone": "512-926-1854",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/austin/091010/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.797763,
+          30.47817
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0509",
+        "address": "11301 Lakeline Blvd",
+        "city": "AUSTIN",
+        "state": "TX",
+        "zip": "78717",
+        "phone": "512-832-5290",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/austin/091058/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.733989,
+          30.38693
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6839",
+        "address": "10515 N Mopac Expy",
+        "city": "AUSTIN",
+        "state": "TX",
+        "zip": "78759",
+        "phone": "512-873-7181",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/austin/091068/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.785575,
+          30.171911
+        ]
+      },
+      "properties": {
+        "name": "Penske South Austin",
+        "address": "8800 S Congress Ave",
+        "city": "AUSTIN",
+        "state": "TX",
+        "zip": "78745",
+        "phone": "512-443-7943",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/austin/613410/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.28457,
+          30.102572
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6575",
+        "address": "525 Hwy 71 W",
+        "city": "BASTROP",
+        "state": "TX",
+        "zip": "78602",
+        "phone": "512-332-2174",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/bastrop/613424/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.97576,
+          29.774717
+        ]
+      },
+      "properties": {
+        "name": "Storage King Usa Baytown",
+        "address": "4624 Garth Rd",
+        "city": "BAYTOWN",
+        "state": "TX",
+        "zip": "77521",
+        "phone": "281-542-5581",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/baytown/029722/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.143272,
+          30.06804
+        ]
+      },
+      "properties": {
+        "name": "Penske Beaumont",
+        "address": "4620 College St",
+        "city": "BEAUMONT",
+        "state": "TX",
+        "zip": "77707",
+        "phone": "409-842-3690",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/beaumont/029610/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.969716,
+          30.336817
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6531",
+        "address": "3600 Ranch Rd 620 S",
+        "city": "BEE CAVE",
+        "state": "TX",
+        "zip": "78738",
+        "phone": "512-263-7645",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/bee_cave/613423/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.497843,
+          30.991553
+        ]
+      },
+      "properties": {
+        "name": "Link N Log Portable Bldg",
+        "address": "7401 S Ih 35 Service Rd",
+        "city": "BELTON",
+        "state": "TX",
+        "zip": "76513",
+        "phone": "254-771-0089",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/belton/623422/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.741061,
+          29.778034
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6556",
+        "address": "633 W Bandera Rd",
+        "city": "BOERNE",
+        "state": "TX",
+        "zip": "78006",
+        "phone": "830-428-3096",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/boerne/649027/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.389738,
+          30.139851
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #8518",
+        "address": "2801 Wood Ridge Blvd",
+        "city": "BRENHAM",
+        "state": "TX",
+        "zip": "77833",
+        "phone": "979-830-5319",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/brenham/010337/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.424285,
+          29.793562
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6989",
+        "address": "128 Bulverde Crossing",
+        "city": "BULVERDE",
+        "state": "TX",
+        "zip": "78163",
+        "phone": "830-438-6146",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/bulverde/649024/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.569324,
+          34.069828
+        ]
+      },
+      "properties": {
+        "name": "Red River Self Storage",
+        "address": "9 Commerce Dr",
+        "city": "BURKBURNETT",
+        "state": "TX",
+        "zip": "76354",
+        "phone": "940-232-9238",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/burkburnett/022941/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.926699,
+          32.988251
+        ]
+      },
+      "properties": {
+        "name": "Penske Carrollton Eisenhower",
+        "address": "2705 Eisenhower St",
+        "city": "CARROLLTON",
+        "state": "TX",
+        "zip": "75007",
+        "phone": "972-446-1616",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/carrollton/629810/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.886815,
+          32.973435
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6555",
+        "address": "2011 Keller Springs Rd",
+        "city": "CARROLLTON",
+        "state": "TX",
+        "zip": "75006",
+        "phone": "214-483-3105",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/carrollton/629845/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.86777,
+          30.515503
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6585",
+        "address": "2700 E Whitestone Blvd",
+        "city": "CEDAR PARK",
+        "state": "TX",
+        "zip": "78613",
+        "phone": "512-528-0863",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/cedar_park/091062/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.050534,
+          29.541951
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6560",
+        "address": "507 Fm 2094 Rd",
+        "city": "CLEAR LAKE SHORES",
+        "state": "TX",
+        "zip": "77565",
+        "phone": "281-334-5398",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/clear_lake_shores/533047/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.395981,
+          32.384875
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6520",
+        "address": "212 W Katherine P Raines Blvd",
+        "city": "CLEBURNE",
+        "state": "TX",
+        "zip": "76033",
+        "phone": "682-498-4319",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/cleburne/669925/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.314551,
+          30.641344
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6559",
+        "address": "1615 University Dr. East",
+        "city": "COLLEGE STATION",
+        "state": "TX",
+        "zip": "77840",
+        "phone": "979-690-6630",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/college_station/010336/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.476249,
+          30.314965
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #508",
+        "address": "1341 W Davis Street",
+        "city": "CONROE",
+        "state": "TX",
+        "zip": "77305",
+        "phone": "936-756-2716",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/conroe/626823/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.451616,
+          30.180677
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6516",
+        "address": "19103 I-45",
+        "city": "CONROE",
+        "state": "TX",
+        "zip": "77385",
+        "phone": "936-271-0428",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/conroe/626826/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.894675,
+          31.122145
+        ]
+      },
+      "properties": {
+        "name": "Cubesmart #6338",
+        "address": "903 Industrial Ave",
+        "city": "COPPERAS COVE",
+        "state": "TX",
+        "zip": "76522",
+        "phone": "254-577-3012",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/copperas_cove/623421/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.463803,
+          27.764221
+        ]
+      },
+      "properties": {
+        "name": "Penske Corpus Christi",
+        "address": "5522 Bear Ln",
+        "city": "CORPUS CHRISTI",
+        "state": "TX",
+        "zip": "78405",
+        "phone": "361-289-1041",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/corpus_christi/054510/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.378816,
+          27.711511
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0526",
+        "address": "5041 S Padre Island Dr",
+        "city": "CORPUS CHRISTI",
+        "state": "TX",
+        "zip": "78411",
+        "phone": "361-980-1893",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/corpus_christi/054528/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.697024,
+          29.970601
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6586",
+        "address": "17928 Spring Cypress Rd",
+        "city": "CYPRESS",
+        "state": "TX",
+        "zip": "77429",
+        "phone": "281-855-8568",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/cypress/626545/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.902766,
+          32.874311
+        ]
+      },
+      "properties": {
+        "name": "Penske Dallas",
+        "address": "10801 Goodnight Ln",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75220",
+        "phone": "972-243-0050",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/011910/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.826525,
+          32.774036
+        ]
+      },
+      "properties": {
+        "name": "Dallas Commerce",
+        "address": "238 W Commerce",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75208",
+        "phone": "972-532-5330",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/054910/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.684088,
+          32.84856
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #550",
+        "address": "11255 Garland Rd",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75218",
+        "phone": "214-309-7673",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/627321/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.749799,
+          32.860753
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6804",
+        "address": "6000 Skillman",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75231",
+        "phone": "972-980-9198",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/627389/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.891807,
+          32.808636
+        ]
+      },
+      "properties": {
+        "name": "Penske Dallas Irving Blv",
+        "address": "4435 Irving Blvd",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75247",
+        "phone": "214-638-2200",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/718010/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.864387,
+          32.758331
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6816",
+        "address": "2610 Fort Worth Ave",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75211",
+        "phone": "972-224-9045",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/718066/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.828493,
+          32.832348
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0589",
+        "address": "6110 Lemmon Ave",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75209",
+        "phone": "214-827-6799",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/718069/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.892248,
+          32.682202
+        ]
+      },
+      "properties": {
+        "name": "Duncanville",
+        "address": "5223 S Cockrell Hill Rd",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75236",
+        "phone": "469-893-4590",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/718110/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.751953,
+          32.62437
+        ]
+      },
+      "properties": {
+        "name": "Penske South Dallas",
+        "address": "10500 Bonnie View Rd",
+        "city": "DALLAS",
+        "state": "TX",
+        "zip": "75241",
+        "phone": "214-561-0500",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/dallas/718510/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.906692,
+          29.394992
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6832",
+        "address": "2454 Veterans Blvd",
+        "city": "DEL RIO",
+        "state": "TX",
+        "zip": "78840",
+        "phone": "830-775-6474",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/del_rio/068439/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.18002,
+          33.1947
+        ]
+      },
+      "properties": {
+        "name": "Penske Denton",
+        "address": "3570 Shelby Ln",
+        "city": "DENTON",
+        "state": "TX",
+        "zip": "76207",
+        "phone": "940-304-3044",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/denton/602310/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.097417,
+          33.187962
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6840",
+        "address": "1900 Brinker Road",
+        "city": "DENTON",
+        "state": "TX",
+        "zip": "76205",
+        "phone": "940-898-1751",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/denton/602321/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.313399,
+          31.732
+        ]
+      },
+      "properties": {
+        "name": "Penske El Paso",
+        "address": "11451 Chito Samaniego",
+        "city": "EL PASO",
+        "state": "TX",
+        "zip": "79936",
+        "phone": "915-593-2900",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/el_paso/017910/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.267281,
+          31.760496
+        ]
+      },
+      "properties": {
+        "name": "Montwood Self Storage",
+        "address": "1951 Joe Battle Blvd",
+        "city": "EL PASO",
+        "state": "TX",
+        "zip": "79938",
+        "phone": "915-857-8646",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/el_paso/017935/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.4189,
+          31.9107
+        ]
+      },
+      "properties": {
+        "name": "Andersen Moving",
+        "address": "9220 Mccombs",
+        "city": "EL PASO",
+        "state": "TX",
+        "zip": "79924",
+        "phone": "915-564-5808",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/el_paso/017957/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.555524,
+          31.814726
+        ]
+      },
+      "properties": {
+        "name": "Penske El Paso Doniphan",
+        "address": "4051 Doniphan Park Cir",
+        "city": "EL PASO",
+        "state": "TX",
+        "zip": "79922",
+        "phone": "915-261-1113",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/el_paso/705110/",
+        "facility_type": "Truck Leasing & Maintenance"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.429197,
+          31.823265
+        ]
+      },
+      "properties": {
+        "name": "Plc Ft Bliss",
+        "address": "1742 Victory Ave",
+        "city": "FORT BLISS",
+        "state": "TX",
+        "zip": "79916",
+        "phone": "915-821-0700",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_bliss/017948/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.319994,
+          32.766867
+        ]
+      },
+      "properties": {
+        "name": "Penske Fort Worth",
+        "address": "501 North Freeway",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76102",
+        "phone": "817-625-9730",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/022910/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.269561,
+          32.977728
+        ]
+      },
+      "properties": {
+        "name": "Compass Self Storage",
+        "address": "4209 Alliance Gateway",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76177",
+        "phone": "817-490-0290",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/022925/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.446934,
+          32.728073
+        ]
+      },
+      "properties": {
+        "name": "Firefighting&#39;s Finest",
+        "address": "3101 Reagan Dr",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76116",
+        "phone": "817-732-9664",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/022928/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.314598,
+          32.871244
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6814",
+        "address": "7100 N Freeway",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76137",
+        "phone": "817-367-6823",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/022944/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.217506,
+          32.763153
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6534",
+        "address": "1151 Bridgewood Dr",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76112",
+        "phone": "682-201-3699",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/022949/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.307633,
+          32.633972
+        ]
+      },
+      "properties": {
+        "name": "Penske Fort Worth South",
+        "address": "1300 John Burgess Dr",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76140",
+        "phone": "682-350-4955",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/669910/",
+        "facility_type": "Truck Leasing & Maintenance"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.399024,
+          32.686431
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #542",
+        "address": "4850 Sw Loop, 820 Bl R",
+        "city": "FORT WORTH",
+        "state": "TX",
+        "zip": "76109",
+        "phone": "817-244-7401",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/fort_worth/669923/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.833233,
+          33.158781
+        ]
+      },
+      "properties": {
+        "name": "Cubesmart #680",
+        "address": "9500 Frisco St",
+        "city": "FRISCO",
+        "state": "TX",
+        "zip": "75034",
+        "phone": "469-362-5385",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/frisco/629848/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.843712,
+          29.289923
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6574",
+        "address": "702 65th St",
+        "city": "GALVESTON",
+        "state": "TX",
+        "zip": "77551",
+        "phone": "409-740-4671",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/galveston/533049/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.665603,
+          32.891448
+        ]
+      },
+      "properties": {
+        "name": "Penske Garland",
+        "address": "2255 S Shiloh Rd",
+        "city": "GARLAND",
+        "state": "TX",
+        "zip": "75041",
+        "phone": "972-271-4742",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/garland/627310/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.690932,
+          30.647287
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6538",
+        "address": "1303 Rivery Blvd",
+        "city": "GEORGETOWN",
+        "state": "TX",
+        "zip": "78628",
+        "phone": "512-869-2793",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/georgetown/622522/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.046606,
+          32.796394
+        ]
+      },
+      "properties": {
+        "name": "Penske Grand Prairie",
+        "address": "2765 N Great Sw Pkwy",
+        "city": "GRAND PRAIRIE",
+        "state": "TX",
+        "zip": "75050",
+        "phone": "972-988-6860",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/grand_prairie/054810/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.006899,
+          32.679667
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #507",
+        "address": "3850 S Carrier Pkwy",
+        "city": "GRAND PRAIRIE",
+        "state": "TX",
+        "zip": "75052",
+        "phone": "972-504-2295",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/grand_prairie/625124/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.06304,
+          32.639025
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #8517",
+        "address": "5280 South Hwy 360",
+        "city": "GRAND PRAIRIE",
+        "state": "TX",
+        "zip": "75052",
+        "phone": "972-375-0931",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/grand_prairie/625170/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.04513,
+          33.132356
+        ]
+      },
+      "properties": {
+        "name": "Aerobic Enterprises",
+        "address": "2061 I-30 Frontage Rd",
+        "city": "GREENVILLE",
+        "state": "TX",
+        "zip": "75402",
+        "phone": "903-458-6801",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/greenville/627326/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.276888,
+          32.838138
+        ]
+      },
+      "properties": {
+        "name": "Aloha Storage",
+        "address": "5029 Haltom Rd",
+        "city": "HALTOM CITY",
+        "state": "TX",
+        "zip": "76117",
+        "phone": "817-626-6970",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/haltom_city/022931/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.72029,
+          26.197784
+        ]
+      },
+      "properties": {
+        "name": "Penske Harlingen",
+        "address": "824 N Expressway 77",
+        "city": "HARLINGEN",
+        "state": "TX",
+        "zip": "78550",
+        "phone": "956-423-7600",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/harlingen/091110/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.504832,
+          29.839258
+        ]
+      },
+      "properties": {
+        "name": "Penske Houston Langtry Street",
+        "address": "7505 Langtry St",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77040",
+        "phone": "713-939-8478",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/018910/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.263548,
+          29.784823
+        ]
+      },
+      "properties": {
+        "name": "Penske Houston East",
+        "address": "351 Gellhorn",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77013",
+        "phone": "713-674-4566",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/029710/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.331603,
+          29.866563
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6806",
+        "address": "10600 Eastex Freeway",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77093",
+        "phone": "281-209-9176",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/029724/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.488851,
+          29.993101
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6828",
+        "address": "4159 Fm 1960 W",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77068",
+        "phone": "281-784-1078",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/029747/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.30516,
+          29.695978
+        ]
+      },
+      "properties": {
+        "name": "Penske Houston South Loop East",
+        "address": "6800 South Loop East Fwy",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77087",
+        "phone": "713-645-9706",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/533010/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.459805,
+          29.723595
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0566",
+        "address": "5445 W Loop S",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77081",
+        "phone": "713-660-8943",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/533042/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.481577,
+          29.817079
+        ]
+      },
+      "properties": {
+        "name": "Penske Houston West",
+        "address": "11608 Hempstead Hwy",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77092",
+        "phone": "713-682-0555",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626510/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.417183,
+          29.812407
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0577",
+        "address": "999 N Loop W",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77008",
+        "phone": "713-802-1439",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626522/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.580625,
+          30.001113
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6512",
+        "address": "21530 Sh 249",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77070",
+        "phone": "281-397-0945",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626524/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.559472,
+          29.70275
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0584",
+        "address": "6800 W Sam Houston",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77072",
+        "phone": "281-879-6714",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626525/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.514922,
+          29.739441
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6558",
+        "address": "8400 Westheimer",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77063",
+        "phone": "713-278-1903",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626530/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.607603,
+          29.920572
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6838",
+        "address": "12727 Fm 1960 W",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77065",
+        "phone": "281-894-9645",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626554/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.42053,
+          29.990556
+        ]
+      },
+      "properties": {
+        "name": "Penske Houston Airtex",
+        "address": "221 E Airtex Dr",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77073",
+        "phone": "281-377-2210",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/626810/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.64182,
+          29.66387
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6860",
+        "address": "10419 Highway 6 South",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77498",
+        "phone": "281-530-7655",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/646921/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.646123,
+          29.727751
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0585",
+        "address": "2828 S Highway 6",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77082",
+        "phone": "281-556-5743",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/646926/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.643048,
+          29.876086
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6506",
+        "address": "6800 Highway 6 North",
+        "city": "HOUSTON",
+        "state": "TX",
+        "zip": "77084",
+        "phone": "844-320-2485",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/houston/646929/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.724845,
+          32.751585
+        ]
+      },
+      "properties": {
+        "name": "Compass Storage",
+        "address": "3750 I Hwy 20",
+        "city": "HUDSON OAKS",
+        "state": "TX",
+        "zip": "76087",
+        "phone": "817-594-7536",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/hudson_oaks/022979/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.24516,
+          29.99986
+        ]
+      },
+      "properties": {
+        "name": "Aj&#39;S Small Engine Repair",
+        "address": "2021 E Fm 1960 Bypass",
+        "city": "HUMBLE",
+        "state": "TX",
+        "zip": "77338",
+        "phone": "281-446-4560",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/humble/029723/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.549957,
+          30.546991
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #8439",
+        "address": "600 W Highway 79",
+        "city": "HUTTO",
+        "state": "TX",
+        "zip": "78634",
+        "phone": "512-846-1071",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/hutto/622521/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.980335,
+          32.923217
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6557",
+        "address": "8555 Home Depot Drive",
+        "city": "IRVING",
+        "state": "TX",
+        "zip": "75063",
+        "phone": "972-409-0118",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/irving/011973/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.877351,
+          29.78451
+        ]
+      },
+      "properties": {
+        "name": "Penske Katy",
+        "address": "29335 Highway Blvd",
+        "city": "KATY",
+        "state": "TX",
+        "zip": "77494",
+        "phone": "346-307-3112",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/katy/646910/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.719289,
+          29.786014
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0534",
+        "address": "1111 Fry Road",
+        "city": "KATY",
+        "state": "TX",
+        "zip": "77449",
+        "phone": "281-578-9867",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/katy/646924/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.775022,
+          29.716863
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6561",
+        "address": "6850 S Fry Road",
+        "city": "KATY",
+        "state": "TX",
+        "zip": "77494",
+        "phone": "713-346-9387",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/katy/646925/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.257079,
+          32.904669
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6548",
+        "address": "2013 Hwy 377",
+        "city": "KELLER",
+        "state": "TX",
+        "zip": "76248",
+        "phone": "817-595-0797",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/keller/022943/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.120194,
+          30.061645
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6576",
+        "address": "1789 Sidney Baker Street",
+        "city": "KERRVILLE",
+        "state": "TX",
+        "zip": "78028",
+        "phone": "830-895-0464",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/kerrville/649023/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.704886,
+          31.080548
+        ]
+      },
+      "properties": {
+        "name": "Strings Enterprises",
+        "address": "3700 Bacon Ranch Rd",
+        "city": "KILLEEN",
+        "state": "TX",
+        "zip": "76542",
+        "phone": "254-251-3042",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/killeen/623425/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.254727,
+          30.035802
+        ]
+      },
+      "properties": {
+        "name": "Sinotex Storage Kingwood",
+        "address": "22200 Highway 59 North",
+        "city": "KINGWOOD",
+        "state": "TX",
+        "zip": "77339",
+        "phone": "281-354-8444",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/kingwood/029721/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.855788,
+          30.022972
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #8454",
+        "address": "3730 Dry Hole Dr",
+        "city": "KYLE",
+        "state": "TX",
+        "zip": "78640",
+        "phone": "512-295-2614",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/kyle/613426/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.455656,
+          29.043437
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6517",
+        "address": "100 Abner Jackson Pkwy",
+        "city": "LAKE JACKSON",
+        "state": "TX",
+        "zip": "77566",
+        "phone": "979-292-0800",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lake_jackson/533044/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.409373,
+          32.816006
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6549",
+        "address": "3950 Jim Wright Frwy",
+        "city": "LAKE WORTH",
+        "state": "TX",
+        "zip": "76135",
+        "phone": "682-499-7400",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lake_worth/022947/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.819765,
+          32.594956
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #8976",
+        "address": "500 N. Interstate 35e",
+        "city": "LANCASTER",
+        "state": "TX",
+        "zip": "75146",
+        "phone": "972-866-9574",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lancaster/718522/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.111732,
+          29.499115
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #1853",
+        "address": "3200 S Gulf Freeway",
+        "city": "LEAGUE CITY",
+        "state": "TX",
+        "zip": "77573",
+        "phone": "281-337-7423",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/league_city/533038/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.012704,
+          33.054176
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #524",
+        "address": "901 N Stemmons Pkwy",
+        "city": "LEWISVILLE",
+        "state": "TX",
+        "zip": "75067",
+        "phone": "972-436-4377",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lewisville/629846/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.733415,
+          32.56889
+        ]
+      },
+      "properties": {
+        "name": "Arrow Rental",
+        "address": "4158 Us-259",
+        "city": "LONGVIEW",
+        "state": "TX",
+        "zip": "75605",
+        "phone": "903-758-2511",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/longview/646120/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.831038,
+          33.54865
+        ]
+      },
+      "properties": {
+        "name": "Penske Lubbock",
+        "address": "512 E 50th St",
+        "city": "LUBBOCK",
+        "state": "TX",
+        "zip": "79404",
+        "phone": "806-740-0103",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lubbock/019710/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.933574,
+          33.541483
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0505",
+        "address": "5801 W Loop 289",
+        "city": "LUBBOCK",
+        "state": "TX",
+        "zip": "79414",
+        "phone": "806-762-0145",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lubbock/019724/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.712724,
+          31.347536
+        ]
+      },
+      "properties": {
+        "name": "The Paint Store",
+        "address": "1421 Atkinson Dr",
+        "city": "LUFKIN",
+        "state": "TX",
+        "zip": "75901",
+        "phone": "936-715-9835",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/lufkin/029628/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.559825,
+          30.223923
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6819",
+        "address": "6119 Fm 1488",
+        "city": "MAGNOLIA",
+        "state": "TX",
+        "zip": "77354",
+        "phone": "281-356-1364",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/magnolia/626825/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.271481,
+          30.583513
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0514",
+        "address": "1307 Mormon Mill R3",
+        "city": "MARBLE FALLS",
+        "state": "TX",
+        "zip": "78654",
+        "phone": "512-266-0748",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/marble_falls/613422/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.259715,
+          26.218064
+        ]
+      },
+      "properties": {
+        "name": "Affordable Attic Storage",
+        "address": "1001 N Ware Rd",
+        "city": "MCALLEN",
+        "state": "TX",
+        "zip": "78504",
+        "phone": "956-519-7210",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/mcallen/054628/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.643824,
+          33.165343
+        ]
+      },
+      "properties": {
+        "name": "El Monte RV",
+        "address": "3500 S Central Expwy",
+        "city": "MCKINNEY",
+        "state": "TX",
+        "zip": "75070",
+        "phone": "214-547-9483",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/mckinney/627352/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.732852,
+          33.214185
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6809",
+        "address": "252 N Custer Rd",
+        "city": "MCKINNEY",
+        "state": "TX",
+        "zip": "75071",
+        "phone": "972-547-9659",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/mckinney/629837/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.6274,
+          32.803101
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6537",
+        "address": "18855 Interstate 635",
+        "city": "MESQUITE",
+        "state": "TX",
+        "zip": "75150",
+        "phone": "214-553-9373",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/mesquite/627322/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.221992,
+          31.93065
+        ]
+      },
+      "properties": {
+        "name": "Rock It Resources",
+        "address": "3014 N Fm 1788",
+        "city": "MIDLAND",
+        "state": "TX",
+        "zip": "79707",
+        "phone": "432-563-5874",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/midland/621231/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.089424,
+          29.701223
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #8520",
+        "address": "1360 N Ih 35",
+        "city": "NEW BRAUNFELS",
+        "state": "TX",
+        "zip": "78130",
+        "phone": "830-620-5951",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/new_braunfels/649025/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.324628,
+          31.863859
+        ]
+      },
+      "properties": {
+        "name": "Penske Odessa",
+        "address": "301 S Pagewood",
+        "city": "ODESSA",
+        "state": "TX",
+        "zip": "79761",
+        "phone": "432-288-9858",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/odessa/621210/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.229015,
+          29.546022
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6543",
+        "address": "1514 Broadway St",
+        "city": "PEARLAND",
+        "state": "TX",
+        "zip": "77581",
+        "phone": "281-648-1963",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/pearland/533046/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.653264,
+          30.491427
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6808",
+        "address": "1517 Town Center Dr",
+        "city": "PFLUGERVILLE",
+        "state": "TX",
+        "zip": "78660",
+        "phone": "512-670-5180",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/pflugerville/091064/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.179306,
+          26.227343
+        ]
+      },
+      "properties": {
+        "name": "Penske Pharr",
+        "address": "3801 N Cage",
+        "city": "PHARR",
+        "state": "TX",
+        "zip": "78577",
+        "phone": "956-781-2073",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/pharr/054610/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.79494,
+          33.099349
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #527",
+        "address": "4600 State Highway 121",
+        "city": "PLANO",
+        "state": "TX",
+        "zip": "75024",
+        "phone": "214-705-8037",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/plano/627323/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.709188,
+          33.017438
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0539",
+        "address": "1224 N Central Expy",
+        "city": "PLANO",
+        "state": "TX",
+        "zip": "75074",
+        "phone": "972-422-6947",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/plano/627382/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.69123,
+          33.052242
+        ]
+      },
+      "properties": {
+        "name": "Penske Plano Rental Mart",
+        "address": "5001 K Ave",
+        "city": "PLANO",
+        "state": "TX",
+        "zip": "75074",
+        "phone": "972-422-9398",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/plano/627410/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.833341,
+          33.221006
+        ]
+      },
+      "properties": {
+        "name": "Longo Toyota Of Prosper",
+        "address": "2100 W. University Dr.",
+        "city": "PROSPER",
+        "state": "TX",
+        "zip": "75078",
+        "phone": "972-347-1805",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/prosper/629849/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.76806,
+          32.983929
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6504",
+        "address": "2220 North Coit Road",
+        "city": "RICHARDSON",
+        "state": "TX",
+        "zip": "75080",
+        "phone": "972-437-6666",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/richardson/627381/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.436609,
+          32.90842
+        ]
+      },
+      "properties": {
+        "name": "205 Diesel Repair",
+        "address": "1611 State Highway 276",
+        "city": "ROCKWALL",
+        "state": "TX",
+        "zip": "75032",
+        "phone": "972-424-4625",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/rockwall/627335/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.75615,
+          29.545966
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6530",
+        "address": "24400 Commercial Drive",
+        "city": "ROSENBURG",
+        "state": "TX",
+        "zip": "77471",
+        "phone": "281-239-2976",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/rosenburg/646920/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.692168,
+          30.518836
+        ]
+      },
+      "properties": {
+        "name": "Penske Round Rock",
+        "address": "1302 Chisholm Trail Rd",
+        "city": "ROUND ROCK",
+        "state": "TX",
+        "zip": "78681",
+        "phone": "512-287-3480",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/round_rock/622510/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.383873,
+          31.443077
+        ]
+      },
+      "properties": {
+        "name": "Dry Dock Self Storage",
+        "address": "3538 Paint Rock Rd",
+        "city": "SAN ANGELO",
+        "state": "TX",
+        "zip": "76908",
+        "phone": "325-213-7040",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_angelo/621230/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.425833,
+          29.425423
+        ]
+      },
+      "properties": {
+        "name": "Penske San Antonio",
+        "address": "3641 E Houston St",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78219",
+        "phone": "210-224-7941",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/068410/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.756944,
+          29.515556
+        ]
+      },
+      "properties": {
+        "name": "Storage King Usa",
+        "address": "13806 Galm Rd",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78254",
+        "phone": "210-225-4411",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/068430/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.482793,
+          29.513363
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6544",
+        "address": "435 Sunset Rd West",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78209",
+        "phone": "210-590-1861",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/068432/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.647675,
+          29.43278
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0586",
+        "address": "611 Sw Loop 410",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78227",
+        "phone": "210-673-1064",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/068456/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.39443,
+          29.511772
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #580",
+        "address": "4909 Windsor Hill",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78239",
+        "phone": "662-288-4007",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/068462/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.586514,
+          29.491718
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #581",
+        "address": "5101 Cambray Dr",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78229",
+        "phone": "210-247-0025",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/068464/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.454927,
+          29.633556
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6550",
+        "address": "20740 Us Hwy 281 North",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78258",
+        "phone": "210-659-3689",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/649028/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.589444,
+          29.565571
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #0588",
+        "address": "12871 W Interstate 10",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78249",
+        "phone": "210-877-5069",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/649029/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.666242,
+          29.557978
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6547",
+        "address": "9115 N Loop 1604 W",
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "zip": "78249",
+        "phone": "210-688-0279",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/san_antonio/649030/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.298729,
+          29.600352
+        ]
+      },
+      "properties": {
+        "name": "Penske San Antonio North",
+        "address": "17582 Lookout Rd",
+        "city": "SELMA",
+        "state": "TX",
+        "zip": "78154",
+        "phone": "726-222-6046",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/selma/649010/",
+        "facility_type": "Truck Leasing & Maintenance"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.58384,
+          33.682125
+        ]
+      },
+      "properties": {
+        "name": "Blue Dot Storage",
+        "address": "2816 Lindley Drive",
+        "city": "SHERMAN",
+        "state": "TX",
+        "zip": "75090",
+        "phone": "903-328-1428",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/sherman/627333/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.489036,
+          30.072241
+        ]
+      },
+      "properties": {
+        "name": "Texas Mega Storage",
+        "address": "4625 Fm 2920",
+        "city": "SPRING",
+        "state": "TX",
+        "zip": "77388",
+        "phone": "281-374-0023",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/spring/626822/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.432932,
+          30.056015
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #568",
+        "address": "20131 N I-45",
+        "city": "SPRING",
+        "state": "TX",
+        "zip": "77373",
+        "phone": "281-528-7096",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/spring/626824/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.632754,
+          29.60147
+        ]
+      },
+      "properties": {
+        "name": "Cubesmart #6851",
+        "address": "1450 Highway 6",
+        "city": "SUGARLAND",
+        "state": "TX",
+        "zip": "77478",
+        "phone": "281-398-3838",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/sugarland/646922/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.567593,
+          33.141011
+        ]
+      },
+      "properties": {
+        "name": "Service Rent-all",
+        "address": "1411 Shannon Road",
+        "city": "SULPHUR SPRINGS",
+        "state": "TX",
+        "zip": "75482",
+        "phone": "903-689-5005",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/sulphur_springs/627334/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.383844,
+          32.684846
+        ]
+      },
+      "properties": {
+        "name": "Lone Wolf Sales &amp; Service",
+        "address": "8525 Michael Talty Ave",
+        "city": "TERRELL",
+        "state": "TX",
+        "zip": "75160",
+        "phone": "972-210-3708",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/terrell/627327/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.053624,
+          33.453926
+        ]
+      },
+      "properties": {
+        "name": "Summerhill Storage",
+        "address": "3415 Summerhill Rd",
+        "city": "TEXARKANA",
+        "state": "TX",
+        "zip": "75503",
+        "phone": "870-773-4176",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/texarkana/646123/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.876354,
+          33.073184
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6562",
+        "address": "5321 Hwy 121",
+        "city": "THE COLONY",
+        "state": "TX",
+        "zip": "75056",
+        "phone": "972-420-7032",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/the_colony/629836/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.359622,
+          32.343147
+        ]
+      },
+      "properties": {
+        "name": "Pit Stop Oil &amp; Lube 3051",
+        "address": "5030 Hwy 31",
+        "city": "TYLER",
+        "state": "TX",
+        "zip": "75709",
+        "phone": "903-581-2496",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/tyler/646125/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.004596,
+          28.863164
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6587",
+        "address": "6708 Ne Zac Lentz Pkwy",
+        "city": "VICTORIA",
+        "state": "TX",
+        "zip": "77904",
+        "phone": "361-572-3563",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/victoria/054530/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.099595,
+          31.509317
+        ]
+      },
+      "properties": {
+        "name": "Penske Waco",
+        "address": "1900 S Loop 340",
+        "city": "WACO",
+        "state": "TX",
+        "zip": "76706",
+        "phone": "254-756-6936",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/waco/010310/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.180188,
+          31.519736
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #6532",
+        "address": "5605 W Waco Dr",
+        "city": "WACO",
+        "state": "TX",
+        "zip": "76710",
+        "phone": "254-751-1959",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/waco/010331/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.237932,
+          32.869262
+        ]
+      },
+      "properties": {
+        "name": "Rufe Snow Depot",
+        "address": "6707 Rufe Snow Dr",
+        "city": "WATAUGA",
+        "state": "TX",
+        "zip": "76148",
+        "phone": "817-581-3514",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/watauga/022920/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.8435,
+          32.41984
+        ]
+      },
+      "properties": {
+        "name": "Advantage Self Storage",
+        "address": "1051 W Hwy 287 Bypass",
+        "city": "WAXAHACHIE",
+        "state": "TX",
+        "zip": "75168",
+        "phone": "972-923-3704",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/waxahachie/718521/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.818407,
+          32.756622
+        ]
+      },
+      "properties": {
+        "name": "Brazos Movers",
+        "address": "1305 Ranger Hwy",
+        "city": "WEATHERFORD",
+        "state": "TX",
+        "zip": "76086",
+        "phone": "817-238-8893",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/weatherford/022954/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.182112,
+          29.585236
+        ]
+      },
+      "properties": {
+        "name": "Home Depot #1859",
+        "address": "18251 Gulf Freeway",
+        "city": "WEBSTER",
+        "state": "TX",
+        "zip": "77598",
+        "phone": "281-990-9262",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/webster/533050/",
+        "facility_type": "Truck Rental"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.509037,
+          33.928183
+        ]
+      },
+      "properties": {
+        "name": "Consignment Sales",
+        "address": "1122 Sheppard Access Rd",
+        "city": "WICHITA FALLS",
+        "state": "TX",
+        "zip": "76306",
+        "phone": "940-696-9890",
+        "schema_type": "LocalBusiness",
+        "url": "https://www.pensketruckrental.com/locations/us/texas/wichita_falls/022940/",
+        "facility_type": "Truck Rental"
+      }
+    }
+  ]
+}
