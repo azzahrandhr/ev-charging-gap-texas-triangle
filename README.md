@@ -14,11 +14,11 @@ Explore the interactive dashboard: [azzahrandhr.github.io/ev-charging-gap-dashbo
 | Metric | Value |
 |---|---|
 | DC Fast chargers in corridor | 629 |
-| Charging deserts (gap > 50 mi) | **0** |
+| Charging deserts (gap >= 30 mi) | I-10 only |
 | Longest single gap | 47.5 mi (I-10) |
 | Median distance to charger | 1.8 mi |
 
-The Texas Triangle is fully covered — no point along I-10, I-35, or I-45 is more than 50 miles from a DC Fast charger. I-10 has the thinnest coverage (avg 10.9 mi gap); I-45 is the most saturated (avg 2.0 mi).
+I-35 and I-45 are well covered. I-10 is the weak link — a 47.5 mi gap means ~95 mi station-to-station, a de facto charging desert. I-10 has the thinnest coverage (avg 10.9 mi gap); I-45 is the most saturated (avg 2.0 mi).
 
 ---
 
@@ -35,6 +35,7 @@ data/
   *.js                     # Compiled JS data files (output of preprocess.py)
 index.html                 # Interactive Leaflet dashboard (single-file, no build step)
 preprocess.py              # Converts output/shapefiles/*.geojson → data/*.js
+texas_triangle_ev_gap.qgz  # QGIS project file — open-source analysis (contact me for data)
 ```
 
 ---
@@ -74,6 +75,12 @@ Open `index.html` in a browser — no server needed.
 | Highway geometries | US Census TIGER/Line (via `pygris`) |
 | Truck stops | OpenStreetMap Overpass API |
 | Texas boundary | TIGER/Line |
+
+---
+
+## QGIS project
+
+`texas_triangle_ev_gap.qgz` is the QGIS project file used for spatial analysis and cartographic verification. The analysis layers use open-source data (AFDC, Census TIGER/Line, OSM). If you need the underlying data files, feel free to [contact me](mailto:azzahra.ndhr@gmail.com).
 
 ---
 

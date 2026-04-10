@@ -282,9 +282,44 @@ with open(OUT / "meta.js", "w") as f:
     f.write(";\n")
 print(f"  → meta.js written")
 
+# ── 7. penske.js ─────────────────────────────────────────────────────────────
+penske_src = Path("output/shapefiles/penske_texas_facilities_classified.geojson")
+if penske_src.exists():
+    print("Processing penske_texas_facilities_classified.geojson...")
+    with open(penske_src) as f:
+        gj = json.load(f)
+
+    penske_facilities = []
+    for feat in gj["features"]:
+        lon, lat = feat["geometry"]["coordinates"]
+        p = feat["properties"]
+        penske_facilities.append({
+            "lat": round_coord(lat),
+            "lon": round_coord(lon),
+            "name": p.get("name", ""),
+            "city": p.get("city", ""),
+            "address": p.get("address", ""),
+            "facilityType": p.get("facility_type", ""),
+            "riskTier": p.get("risk_tier", ""),
+            "nearestHighway": p.get("nearest_highway", ""),
+            "distChargerMi": round(p.get("dist_to_nearest_charger_mi", 0), 1),
+            "nearestGapMi": round(p.get("nearest_gap_mi", 0), 1),
+        })
+
+    with open(OUT / "penske.js", "w") as f:
+        f.write("const PENSKE = ")
+        json.dump(penske_facilities, f, separators=(",", ":"))
+        f.write(";\n")
+    print(f"  → {len(penske_facilities)} facilities, {(OUT/'penske.js').stat().st_size//1024}KB")
+else:
+    print("SKIP: penske_texas_facilities_classified.geojson not found (run classify_penske.py first)")
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 print("\n✓ All data files written to data/")
-total_kb = sum((OUT / fn).stat().st_size for fn in ["gap_analysis.js","chargers.js","truck_stops.js","corridor.js","highways.js","meta.js"]) // 1024
+all_files = ["gap_analysis.js","chargers.js","truck_stops.js","corridor.js","highways.js","meta.js"]
+if (OUT / "penske.js").exists():
+    all_files.append("penske.js")
+total_kb = sum((OUT / fn).stat().st_size for fn in all_files) // 1024
 print(f"  Total payload: ~{total_kb}KB")
 print(f"\nKey stats:")
 print(f"  DC Fast chargers in corridor: {len(chargers)}")
